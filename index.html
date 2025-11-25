@@ -1,30 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BioRhyme&amp;family=Space+Mono&amp;display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <title>To-do List</title>
+<html lang="pt-BR">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>To-do List</title>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <div class="app">
-    <div class="todo-list">
-      <h1 class="title">
-        To-do list
-      </h1>
-  
-      <form id="form" class="form" action="">
-        <input class="form-input" type="text">
-        <button id="button" class="form-button" type="button">New Item</button>
-      </form>
-
-      <ul id="list" class="list">
-
-      </ul>
-    </div>
+<div class="card">
+<h1>To-do List</h1>
+<div class="controls">
+<input id="itemInput" type="text" placeholder="Add an item..." />
+<button id="addBtn">Add</button>
+</div>
+<ul id="shoppingList"></ul>
+<p class="empty" id="emptyMsg">The list is empty. Add something above.</p>
+</div>
   <script src="toDoList.js"></script>
 </body>
 </html>
-

@@ -1,26 +1,29 @@
-const button = document.getElementById("button");
-const input = document.getElementsByClassName("form-input")[0];
-const list = document.getElementById("list");
-const form = document.getElementById("form");
-
-button.addEventListener("click", click);
+const addButton = document.querySelector("#addBtn");
+const input = document.querySelector("#itemInput");
+const list = document.querySelector("#shoppingList");
+const emptyMsg = document.querySelector("#emptyMsg");
 
 
-function click() {
-  list.innerHTML += `
-  <li class="task">
-    <p class="content">
-      ${input.value} 
-      <button class="checkmark">&#10003</button>
-    </p>
-  </li>
-  `;
-  form.reset();
-}
 
-function checkItem() {
-  const checkmark = document.getElementById("checkmark");
+//Add item function
+addButton.onclick = () => {
+  const item = document.createElement("p");
+  item.textContent = input.value;
 
-  checkmark.addEventListener("click", checkItem);
+  const removeButton = document.createElement("button");
+  removeButton.textContent = " X "
 
-}
+  item.append(removeButton);
+
+  list.append(item);
+
+  emptyMsg.toggleAttribute("hidden");
+  
+  //Remove item function
+  removeButton.onclick = () => {
+    item.remove();
+  };
+};
+
+
+
