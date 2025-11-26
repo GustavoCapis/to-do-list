@@ -1,6 +1,6 @@
 body {
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-  background: #382d66f5;
+  background: #13093b;
   color: #111;
   display: flex;
   align-items: center;
@@ -12,7 +12,7 @@ body {
   background: #fff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(15, 15, 30, 0.08);
+  box-shadow: 0 6px 18px rgb(0, 0, 0);
   width: 360px;
 }
 h1 {
@@ -30,7 +30,11 @@ input[type="text"] {
   border-radius: 8px;
   border: 1px solid #e3e6ee;
 }
-button {
+
+#itemInput:hover {
+transform: scale(1.03);
+}
+.addBtn {
   padding: 8px 10px;
   border-radius: 8px;
   border: 0;
@@ -38,6 +42,35 @@ button {
   color: #fff;
   cursor: pointer;
 }
+
+.addBtn:hover {
+  background-color: #8261cf;
+  transform: scale(1.1);
+}
+
+.removeBtn {
+  width: 33px;
+  height: 33px;
+  padding: 0;
+  margin-left: 0;
+  border-radius: 50%;
+  border: 0;
+  background: #ffffff00;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.removeBtnIcon {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.removeBtnIcon:hover {
+  transform: scale(1.2);
+}
+
+
 ul {
   padding-left: 18px;
   margin: 0;
