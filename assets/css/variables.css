@@ -1,0 +1,21 @@
+/* light-mode colors */
+:root {
+    /* page bg */
+   --color-background-page: #ede1f1;
+    /* card */
+   --color-background-card: #fcf4ff;
+   --box-shadow-card: 0 6px 18px rgba(170, 167, 167, 0.829);
+   /* text */
+   --color-title: #4B2C91;
+   --color-list-item: #1a0333;
+   --color-empty-msg: #6b7280;
+   /* input */
+   --color-input-border: #e3e6ee;
+   --color-input-background: #E0CFFF;
+   --color-input-text: #5c5c54;
+   /* buttons */
+   --color-addBtn-background: #8261cf;
+   --color-addBtn-text: #fff;
+   --color-addBtn-hover: #c561ff;
+   --color-themeBtn-hover: #f2dffa;
+}

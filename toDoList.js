@@ -1,5 +1,7 @@
 const addButton = document.querySelector("#addBtn");
 
+const themeButton = document.querySelector(".themeBtn");
+
 const input = document.querySelector("#itemInput");
 
 const list = document.querySelector("#shoppingList");
@@ -62,8 +64,21 @@ function addGlobalEventListener(type, selector, callback) {
     if (e.target.matches(selector)) callback(e);
   });
 }
-//----------------------------------    EVENTS   -----------------------------------------
 
+//change theme function
+function changeTheme() {
+  const html = document.querySelector("html");
+  html.classList.toggle("dark-mode");
+
+  const themeBtnIcon = document.querySelector(".themeBtnIcon");
+  if (html.classList.contains("dark-mode")) {
+    themeBtnIcon.src = "assets/imgs/sun-icon.png";
+  } else {
+    themeBtnIcon.src = "assets/imgs/moon-icon.png";
+  }
+}
+//----------------------------------    EVENTS   -----------------------------------------
+themeButton.addEventListener("click", changeTheme);
 //add item button event
 addButton.addEventListener("click", addItem);
 

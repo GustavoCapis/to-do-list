@@ -1,6 +1,12 @@
+@import url(variables.css);
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-  background: #15021d;
+  background: var(--color-background-page);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,18 +14,19 @@ body {
   margin: 0;
 }
 .card {
-  background: #fcf4ff;
+  background: var(--color-background-card);
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(170, 167, 167, 0.829);
+  box-shadow: var(--box-shadow-card);
   width: 360px;
+  display: block;
 }
 h1 {
   font-size: 30px;
   font-weight: 300;
   font-style: italic;
   margin: 0 0 27px;
-  color: #4B2C91
+  color: var(--color-title);
 }
 .controls {
   display: flex;
@@ -30,9 +37,9 @@ input[type="text"] {
   flex: 1;
   padding: 8px 10px;
   border-radius: 8px;
-  border: 1px solid #e3e6ee;
-  background-color: #E0CFFF;
-  color: #5c5c54;
+  border: 1px solid var(--color-input-border);
+  background-color: var(--color-input-background);
+  color: var(--color-input-text);
 }
 
 #itemInput:hover {
@@ -42,13 +49,13 @@ transform: scale(1.03);
   padding: 8px 10px;
   border-radius: 8px;
   border: 0;
-  background: #8261cf;
-  color: #fff;
+  background: var(--color-addBtn-background);
+  color: var(--color-addBtn-text);
   cursor: pointer;
 }
 
 .addBtn:hover {
-  background-color:#c561ff ;
+  background-color:var(--color-addBtn-hover);
   transform: scale(1.1);
 }
 
@@ -59,7 +66,7 @@ transform: scale(1.03);
   margin-left: 0;
   border-radius: 50%;
   border: 0;
-  background: #ffffff00;
+  background: transparent;
   font-weight: 700;
   cursor: pointer;
 }
@@ -88,20 +95,160 @@ li {
 }
 
 .listItem {
-color: #1a0333;
+color: var(--color-list-item);
 /* font-weight: 400; */
 font-size: 15px;
 }
 
-.remove {
-  background: transparent;
-  border: 0;
-  color: #c53030;
-  cursor: pointer;
-  font-weight: 600;
-}
 .emptyMsg {
-  color: #6b7280;
+  color: var(--color-empty-msg);
   font-size: 14px;
   margin-top: 8px;
+}
+
+.themeBtn {
+  background-color: transparent;
+  border-style:solid;
+  border-color:transparent;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  margin-left: 139px;
+}
+
+.themeBtn:hover {
+  background-color: var(--color-themeBtn-hover);
+  cursor: pointer;
+  
+}
+
+.themeBtnIcon {
+  width: 30px;
+  height: 30px;
+}
+
+/* --------------- DARK MODE ---------------------- */
+.dark-mode {
+  body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: #08001b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+.card {
+  background: #1e1931f5;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.829);
+  width: 360px;
+  display: block;
+}
+h1 {
+  font-size: 30px;
+  font-weight: 300;
+  font-style: italic;
+  margin: 0 0 27px;
+  color: #ded9eb
+}
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+input[type="text"] {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #0f0f0f;
+  background-color: #261d55;
+  color: #ced0db;
+}
+
+#itemInput:hover {
+transform: scale(1.03);
+}
+.addBtn {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 0;
+  background: #1e045a;
+  color: #fff;
+  cursor: pointer;
+}
+
+.addBtn:hover {
+  background-color:#261d55 ;
+  transform: scale(1.1);
+}
+
+.deleteBtn {
+  width: 33px;
+  height: 33px;
+  padding: 0;
+  margin-left: 0;
+  border-radius: 50%;
+  border: 0;
+  background: transparent;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.deleteBtnIcon {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.deleteBtnIcon:hover {
+  transform: scale(1.2);
+}
+
+
+ul {
+  padding-left: 18px;
+  margin: 0;
+}
+li {
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.listItem {
+color: #ede4f8;
+/* font-weight: 400; */
+font-size: 15px;
+}
+
+.emptyMsg {
+  color: #c2cbdf;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.themeBtn {
+  background-color: transparent;
+  border-style:solid;
+  border-color:transparent;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  margin-left: 139px;
+}
+
+.themeBtn:hover {
+  background-color: #261d55;
+  cursor: pointer;
+  
+}
+
+.themeBtnIcon {
+  width: 30px;
+  height: 30px;
+}
 }
