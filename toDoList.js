@@ -1,32 +1,53 @@
 const addButton = document.querySelector("#addBtn");
+
 const input = document.querySelector("#itemInput");
+
 const list = document.querySelector("#shoppingList");
+
 const emptyMsg = document.querySelector("#emptyMsg");
 
-//Add item function
-addButton.onclick = () => {
-  const item = document.createElement("p");
-  item.textContent = input.value;
+// --------------------------------------- FUNCTIONS  -------------------------------------
+//create list item content
+function createListItem(text) {
+  const listItem = document.createElement("li");
+  listItem.classList.add("listItem");
 
-  const removeButton = document.createElement("button");
-  removeButton.classList.add("removeBtn");
+  listItem.textContent = text;
 
-  //add trash icon
-  const icon = document.createElement("img");
-  icon.classList.add("removeBtnIcon");
-  icon.src = "assets/imgs/trash-icon.png";
-  icon.alt = "trash-icon";
+  const deleteBtn = createDeleteBtn();
 
-  removeButton.append(icon);
-  item.append(removeButton);
-  list.append(item);
+  listItem.append(deleteBtn);
 
-  emptyMsg.toggleAttribute("hidden");
+  return listItem;
+};
 
-  //Remove item function
-  removeButton.onclick = () => {
-    item.remove();
-  };
+//create delete button aside list item
+function createDeleteBtn() {
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("deleteBtn");
+
+  const deleteBtnIcon = document.createElement("img");
+  deleteBtnIcon.classList.add("deleteBtnIcon");
+  deleteBtnIcon.src = "assets/imgs/trash-icon.png";
+  deleteBtnIcon.alt = "trash-icon";
+
+  deleteBtn.append(deleteBtnIcon);
+
+  return deleteBtn;
+};
+
+//Empty list message visibility
+function updateEmptyMsg() {
+  list.children.length === 0 ? emptyMsg.removeAttribute("hidden") : emptyMsg.setAttribute("hidden");
+};
+
+//Add item to list
+function addItem() {
+  const newItem = createListItem(input.value);
+  list.append(newItem);
+  input.value = ''; //clears the input
+
+  updateEmptyMsg();
 };
 
 //event delegation function
@@ -35,15 +56,25 @@ function addGlobalEventListener(type, selector, callback) {
     if (e.target.matches(selector)) callback(e);
   });
 }
+    //----------------------------------    EVENTS   -----------------------------------------
+
+
+//add item button event
+addButton.addEventListener("click", addItem);
+
+//delete item button event
+addGlobalEventListener("click", ".deleteBtnIcon", (e) => {
+  e.target.closest("li").remove();
+  updateEmptyMsg();
+});
 
 //change trash icon to red on mouse over
-addGlobalEventListener("mouseover", ".removeBtnIcon", (e) => {
+addGlobalEventListener("mouseover", ".deleteBtnIcon", (e) => {
   e.target.src = "assets/imgs/trash-icon-red.png";
 });
 
 //change trash icon to black on mouse out
-addGlobalEventListener("mouseout", ".removeBtnIcon", (e) => {
+addGlobalEventListener("mouseout", ".deleteBtnIcon", (e) => {
     e.target.src = "assets/imgs/trash-icon.png";
 });
-
 
