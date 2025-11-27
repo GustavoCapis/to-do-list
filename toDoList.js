@@ -19,7 +19,7 @@ function createListItem(text) {
   listItem.append(deleteBtn);
 
   return listItem;
-};
+}
 
 //create delete button aside list item
 function createDeleteBtn() {
@@ -34,21 +34,27 @@ function createDeleteBtn() {
   deleteBtn.append(deleteBtnIcon);
 
   return deleteBtn;
-};
+}
 
 //Empty list message visibility
 function updateEmptyMsg() {
-  list.children.length === 0 ? emptyMsg.removeAttribute("hidden") : emptyMsg.setAttribute("hidden");
-};
+  list.children.length === 0 ? (emptyMsg.hidden = false) : (emptyMsg.hidden = true);
+}
 
 //Add item to list
 function addItem() {
+  if (input.value.trim() === "") {
+    window.alert("You must write something first!");
+    input.focus();
+    return; //empty return STOPS the function!
+  }
+
   const newItem = createListItem(input.value);
   list.append(newItem);
-  input.value = ''; //clears the input
+  input.value = ""; //clears the input
 
   updateEmptyMsg();
-};
+}
 
 //event delegation function
 function addGlobalEventListener(type, selector, callback) {
@@ -56,11 +62,18 @@ function addGlobalEventListener(type, selector, callback) {
     if (e.target.matches(selector)) callback(e);
   });
 }
-    //----------------------------------    EVENTS   -----------------------------------------
-
+//----------------------------------    EVENTS   -----------------------------------------
 
 //add item button event
 addButton.addEventListener("click", addItem);
+
+//add item on Enter key
+input.addEventListener("keypress", (e) => {
+  console.log("tecla pressionada", e.key);
+  if (e.key === "Enter") {
+    addItem();
+  }
+});
 
 //delete item button event
 addGlobalEventListener("click", ".deleteBtnIcon", (e) => {
@@ -75,6 +88,5 @@ addGlobalEventListener("mouseover", ".deleteBtnIcon", (e) => {
 
 //change trash icon to black on mouse out
 addGlobalEventListener("mouseout", ".deleteBtnIcon", (e) => {
-    e.target.src = "assets/imgs/trash-icon.png";
+  e.target.src = "assets/imgs/trash-icon.png";
 });
-
