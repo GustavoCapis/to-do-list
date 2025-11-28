@@ -90,11 +90,11 @@ li {
   margin: 8px 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 12px;
 }
 
-.listItem {
+.item {
 color: var(--color-list-item);
 /* font-weight: 400; */
 font-size: 15px;
@@ -125,6 +125,20 @@ font-size: 15px;
 .themeBtnIcon {
   width: 30px;
   height: 30px;
+}
+
+.checkBox{
+  height: 24px;
+  width: 24px;
+  border-radius: 30%;
+  border-color: var(--color-input-border);
+  justify-content: center;   /* centraliza o checkmark */
+  font-size: 15px;           /* ajusta o tamanho do ✔ */
+}
+
+.checkBox:hover {
+  cursor: pointer;
+  background-color: var(--color-themeBtn-hover);
 }
 
 /* --------------- DARK MODE ---------------------- */
@@ -215,11 +229,11 @@ li {
   margin: 8px 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 12px;
 }
 
-.listItem {
+.item {
 color: #ede4f8;
 /* font-weight: 400; */
 font-size: 15px;
@@ -251,4 +265,20 @@ font-size: 15px;
   width: 30px;
   height: 30px;
 }
+
+.checkBox{
+  height: 24px;
+  width: 24px;
+  border-radius: 30%;
+  border-color: #0f0f0f;
+  background-color: #342d53f5;
+  justify-content: center;   /* centraliza o checkmark */
+  font-size: 15px;           /* ajusta o tamanho do ✔ */
+}
+
+.checkBox:hover {
+  cursor: pointer;
+  background-color: #261d55;
+}
+
 }

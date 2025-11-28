@@ -14,8 +14,8 @@
    --color-input-background: #E0CFFF;
    --color-input-text: #5c5c54;
    /* buttons */
-   --color-addBtn-background: #8261cf;
+   --color-addBtn-hover: #8261cf;
    --color-addBtn-text: #fff;
-   --color-addBtn-hover: #c561ff;
+   --color-addBtn-background: #c561ff;
    --color-themeBtn-hover: #f2dffa;
 }
